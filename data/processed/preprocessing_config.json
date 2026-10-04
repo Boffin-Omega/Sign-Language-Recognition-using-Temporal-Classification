@@ -1,0 +1,45 @@
+{
+    "dataset": "Australian Sign Language Signs - High Quality",
+    "total_recordings": 2565,
+    "original_classes_found": 96,
+    "final_classes": 95,
+    "label_correction": {
+        "original_label": "her",
+        "corrected_label": "his_hers",
+        "number_of_recordings_corrected": 3,
+        "reason": "tctodd1 contained 3 recordings labelled 'her', while tctodd2-tctodd9 contained the same class as 'his_hers'. Each session has 95 labels and 3 recordings per sign."
+    },
+    "raw_shape_per_recording": "variable_length x 22",
+    "temporal_normalization": {
+        "method": "scipy.signal.resample",
+        "target_length": 57
+    },
+    "spatial_normalization": {
+        "method": "per-recording, per-feature min-max scaling",
+        "output_range": "[0, 1]",
+        "constant_features": "retained as 0"
+    },
+    "train_test_split": {
+        "method": "session-based",
+        "training_sessions": [
+            "tctodd1",
+            "tctodd2",
+            "tctodd3",
+            "tctodd4",
+            "tctodd5",
+            "tctodd6"
+        ],
+        "testing_sessions": [
+            "tctodd7",
+            "tctodd8",
+            "tctodd9"
+        ],
+        "training_samples": 1710,
+        "testing_samples": 855
+    },
+    "lstm_input_shape": "(samples, 57, 22)",
+    "classical_input_shape": "(samples, 1254)",
+    "additional_standardization": false,
+    "imbalance_handling": "None required; classes are balanced",
+    "missing_value_handling": "No imputation required; no NaN or Inf values found"
+}
