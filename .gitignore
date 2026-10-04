@@ -1,0 +1,4 @@
+data/high_quality/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
